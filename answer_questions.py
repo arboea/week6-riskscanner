@@ -218,6 +218,51 @@ def compute_score(question: str, answer: str, backend: str) -> int:
     return 50
 
 
+def compute_score_model(question: str, answer: str, model: str = 'gpt-3.5-turbo', api_key: str = None) -> int:
+    """Ask the OpenAI model to provide a numeric risk score 0-100.
+
+    Conventions: 0 = lowest risk (very confident), 100 = highest risk (very uncertain).
+    Returns an integer in [0,100]. Falls back to 50 on errors.
+    """
+    if openai is None:
+        return 50
+    if api_key is None:
+        api_key = os.environ.get('OPENAI_API_KEY')
+    if not api_key:
+        return 50
+
+    openai.api_key = api_key
+    prompt = (
+        "You are given a question and an answer.\n"
+        "Return a single integer between 0 and 100 (inclusive) that indicates the RISK of the answer, "
+        "where 0 means very low risk (the answer is highly likely correct) and 100 means very high risk (the answer is likely incorrect).\n"
+        "Give only the integer and nothing else.\n\n"
+        "Question:\n" + question + "\n\n"
+        "Answer:\n" + answer + "\n\n"
+    )
+    try:
+        resp = openai.ChatCompletion.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            max_tokens=16,
+        )
+        txt = resp['choices'][0]['message']['content'].strip()
+        # extract first integer
+        import re
+        m = re.search(r"(-?\d{1,3})", txt)
+        if m:
+            val = int(m.group(1))
+            if val < 0:
+                val = 0
+            if val > 100:
+                val = 100
+            return val
+    except Exception:
+        pass
+    return 50
+
+
 def write_answers(answers: List[Dict], out_path: str):
     # write CSV via pandas if available, else simple CSV writer
     if pd is not None:
@@ -249,6 +294,8 @@ def main():
     parser.add_argument('--backend', choices=['openai', 'echo', 'local'], default='local', help='Answer backend')
     parser.add_argument('--model', default='gpt-3.5-turbo', help='OpenAI model to use')
     parser.add_argument('--out', default='answers.csv', help='Output CSV file path')
+    parser.add_argument('--score-mode', choices=['heuristic', 'model'], default='heuristic',
+                        help='How to compute numeric score: heuristic or model (requires OpenAI key)')
     parser.add_argument('--apikey', default=None, help='OpenAI API key (optional; otherwise use OPENAI_API_KEY env var)')
     parser.add_argument('--delay', type=float, default=0.5, help='Delay between requests to avoid rate limits')
     args = parser.parse_args()
@@ -274,7 +321,10 @@ def main():
         except Exception as e:
             ans = f'ERROR: {e}'
         # compute numeric score programmatically and derive level
-        score = compute_score(q, ans, args.backend)
+        if args.score_mode == 'model':
+            score = compute_score_model(q, ans, model=args.model, api_key=args.apikey)
+        else:
+            score = compute_score(q, ans, args.backend)
         level = compute_level(score)
         answers.append({'question': q, 'answer': ans, 'score': score, 'level': level})
         time.sleep(args.delay)

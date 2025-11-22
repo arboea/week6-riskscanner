@@ -325,10 +325,9 @@ def main():
             raw_score = compute_score_model(q, ans, model=args.model, api_key=args.apikey)
         else:
             raw_score = compute_score(q, ans, args.backend)
-        level = compute_level(raw_score)
-        # Map level back to original numeric scheme: Low=10, Medium=50, High=80
-        level_to_score = {'Low': 10, 'Medium': 50, 'High': 80}
-        score = int(level_to_score.get(level, 50))
+        # Use raw_score (0-100) as the numeric score and derive level from it
+        score = int(max(0, min(100, int(raw_score))))
+        level = compute_level(score)
         answers.append({'question': q, 'answer': ans, 'score': score, 'level': level})
         time.sleep(args.delay)
 

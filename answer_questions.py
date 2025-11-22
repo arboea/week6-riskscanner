@@ -322,10 +322,13 @@ def main():
             ans = f'ERROR: {e}'
         # compute numeric score programmatically and derive level
         if args.score_mode == 'model':
-            score = compute_score_model(q, ans, model=args.model, api_key=args.apikey)
+            raw_score = compute_score_model(q, ans, model=args.model, api_key=args.apikey)
         else:
-            score = compute_score(q, ans, args.backend)
-        level = compute_level(score)
+            raw_score = compute_score(q, ans, args.backend)
+        level = compute_level(raw_score)
+        # Map level back to original numeric scheme: Low=10, Medium=50, High=80
+        level_to_score = {'Low': 10, 'Medium': 50, 'High': 80}
+        score = int(level_to_score.get(level, 50))
         answers.append({'question': q, 'answer': ans, 'score': score, 'level': level})
         time.sleep(args.delay)
 

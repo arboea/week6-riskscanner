@@ -1,11 +1,11 @@
-﻿question,answer
-What the typical weight of a cloud?,About 1,000,000 kg (approximately 1e6 kg) for a typical cumulus cloud (order-of-magnitude estimate).
-What is the deepest place on Earth?,Challenger Deep in the Mariana Trench - about 10,900 to 11,000 meters below sea level.
-What is the longest river in the world?,The Nile is commonly cited as the longest (~6,650 km / 4,130 miles), though some measurements list the Amazon as longer.
-What do plants absorb during photosynthesis?,Plants absorb carbon dioxide (CO2) and water (H2O) and use light energy to make glucose; they release oxygen.
-What is the chemical formulation for salt?,Table salt is sodium chloride, with the chemical formula NaCl.
-What is the largest planet?,Jupiter.
-How many amendments are on the US constitution?,27 amendments.
-What is the hardest natural substance on earth?,Diamond.
-What is the capital city of Japan?,Tokyo.
-What is the boiling point of water at sea level?,100C (212F) at 1 atmosphere (sea level pressure).
+﻿question,answer,,,,
+What the typical weight of a cloud?,About 1,0,000 kg (approximately 1e6 kg) for a typical cumulus cloud (order-of-magnitude estimate).,,About 10000 kg (approximately 1e6 kg) for a typical cumulus cloud (order-of-magnitude estimate).
+What is the deepest place on Earth?,Challenger Deep in the Mariana Trench - about 10,900 to 11,000 meters below sea level.,,Challenger Deep in the Mariana Trench - about 10900 to 11000 meters below sea level.
+What is the longest river in the world?,The Nile is commonly cited as the longest (~6,650 km / 4,130 miles), though some measurements list the Amazon as longer.,The Nile is commonly cited as the longest (~6650 km / 4130 miles) though some measurements list the Amazon as longer.
+What do plants absorb during photosynthesis?,Plants absorb carbon dioxide (CO2) and water (H2O) and use light energy to make glucose; they release oxygen.,,,,Plants absorb carbon dioxide (CO2) and water (H2O) and use light energy to make glucose; they release oxygen.
+What is the chemical formulation for salt?,Table salt is sodium chloride, with the chemical formula NaCl.,,,Table salt is sodium chloride with the chemical formula NaCl.
+What is the largest planet?,Jupiter.,,,,Jupiter.
+How many amendments are on the US constitution?,27 amendments.,,,,27 amendments.
+What is the hardest natural substance on earth?,Diamond.,,,,Diamond.
+What is the capital city of Japan?,Tokyo.,,,,Tokyo.
+What is the boiling point of water at sea level?,100C (212F) at 1 atmosphere (sea level pressure).,,,,100C (212F) at 1 atmosphere (sea level pressure).

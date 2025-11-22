@@ -1,11 +1,11 @@
-﻿question,answer,,,,
-What the typical weight of a cloud?,About 1,0,000 kg (approximately 1e6 kg) for a typical cumulus cloud (order-of-magnitude estimate).,,About 10000 kg (approximately 1e6 kg) for a typical cumulus cloud (order-of-magnitude estimate).
-What is the deepest place on Earth?,Challenger Deep in the Mariana Trench - about 10,900 to 11,000 meters below sea level.,,Challenger Deep in the Mariana Trench - about 10900 to 11000 meters below sea level.
-What is the longest river in the world?,The Nile is commonly cited as the longest (~6,650 km / 4,130 miles), though some measurements list the Amazon as longer.,The Nile is commonly cited as the longest (~6650 km / 4130 miles) though some measurements list the Amazon as longer.
-What do plants absorb during photosynthesis?,Plants absorb carbon dioxide (CO2) and water (H2O) and use light energy to make glucose; they release oxygen.,,,,Plants absorb carbon dioxide (CO2) and water (H2O) and use light energy to make glucose; they release oxygen.
-What is the chemical formulation for salt?,Table salt is sodium chloride, with the chemical formula NaCl.,,,Table salt is sodium chloride with the chemical formula NaCl.
-What is the largest planet?,Jupiter.,,,,Jupiter.
-How many amendments are on the US constitution?,27 amendments.,,,,27 amendments.
-What is the hardest natural substance on earth?,Diamond.,,,,Diamond.
-What is the capital city of Japan?,Tokyo.,,,,Tokyo.
-What is the boiling point of water at sea level?,100C (212F) at 1 atmosphere (sea level pressure).,,,,100C (212F) at 1 atmosphere (sea level pressure).
+﻿question,answer,score,level
+"How much does a cloud weigh?","A typical cumulus cloud weighs about 1.1 million pounds (approximately 500,000 kilograms).",50,Medium
+"What's the deepest place in the ocean?","The deepest place is the Challenger Deep in the Mariana Trench, about 10,924 meters (35,840 feet) deep.",10,Low
+"Which is the longest river in the world?","The Nile and the Amazon are both contenders; depending on measurement methods the Nile is often listed as the longest (about 6,650 km), but some measurements and definitions can make the Amazon longer.",80,High
+"What is photosynthesis?","Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy, water, and carbon dioxide into glucose and oxygen.",10,Low
+"Is salt sodium chloride?","Yes, common table salt is sodium chloride (NaCl).",10,Low
+"Which is the largest planet in our solar system?","Jupiter is the largest planet in the Solar System.",10,Low
+"How many amendments are in the U.S. Constitution?","There are 27 amendments to the United States Constitution.",10,Low
+"What is the hardest natural substance?","Diamond is the hardest naturally occurring known material.",10,Low
+"What is the capital of France?","Paris is the capital of France.",10,Low
+"What is the boiling point of water at sea level?","100°C (212°F) at one atmosphere of pressure.",10,Low
